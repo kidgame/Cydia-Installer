@@ -1,7 +1,7 @@
-#!/usr/bin/env bash
+#!/usr/local/bin/bash
 
 if [[ ${BASH_VERSION} != 4* ]]; then
-    echo "bash 4.0 required" 1>&2
+    echo "bash 4.0 required. Please read compiling.txt." 1>&2
     exit 1
 fi
 
@@ -18,8 +18,8 @@ for command in unlzma wget; do
     fi
 done
 
-if tar --help | grep bsdtar &>/dev/null; then
-    echo "Running \`tar\` is bsdtar :(. Please read compiling.txt." 1>&2
+if gtar --help | grep bsdtar &>/dev/null; then
+    echo "Running \`gtar\` is bsdtar :(. Please read compiling.txt." 1>&2
     exit 1
 fi
 
@@ -56,7 +56,7 @@ function extract() {
     fi
 
     ls -la data.tar
-    tar -xf ./data.tar
+    gtar -xf ./data.tar
     rm -f data.tar
 }
 
@@ -120,7 +120,7 @@ if true; then
     wget -O WebCore/WebEvent.h 'http://www.opensource.apple.com/source/WebCore/WebCore-658.28/platform/iphone/WebEvent.h?txt'
 else
     wget -O WebCore.tgz http://www.opensource.apple.com/tarballs/WebCore/WebCore-658.28.tar.gz
-    tar -zx --transform 's@^[^/]*/@WebCore.d/@' -f WebCore.tgz
+    gtar -zx --transform 's@^[^/]*/@WebCore.d/@' -f WebCore.tgz
 
     mkdir WebCore
     cp -a WebCore.d/{*,rendering/style,platform/graphics/transforms}/*.h WebCore
@@ -129,11 +129,11 @@ else
     cp -a WebCore.d/bridge/objc/*.h WebCore
 
     wget -O JavaScriptCore.tgz http://www.opensource.apple.com/tarballs/JavaScriptCore/JavaScriptCore-554.1.tar.gz
-    #tar -zx --transform 's@^[^/]*/API/@JavaScriptCore/@' -f JavaScriptCore.tgz $(tar -ztf JavaScriptCore.tgz | grep '/API/[^/]*.h$')
-    tar -zx \
+    #gtar -zx --transform 's@^[^/]*/API/@JavaScriptCore/@' -f JavaScriptCore.tgz $(gtar -ztf JavaScriptCore.tgz | grep '/API/[^/]*.h$')
+    gtar -zx \
         --transform 's@^[^/]*/@@' \
         --transform 's@^icu/@@' \
-    -f JavaScriptCore.tgz $(tar -ztf JavaScriptCore.tgz | sed -e '
+    -f JavaScriptCore.tgz $(gtar -ztf JavaScriptCore.tgz | sed -e '
         /\/icu\/unicode\/.*\.h$/ p;
         /\/profiler\/.*\.h$/ p;
         /\/runtime\/.*\.h$/ p;
