@@ -38,3 +38,10 @@ A2. You are trying to compile for the armv6 architecture with a recent Xcode bui
 Q3. The script tells me to "read compiling.txt" ...What?
 
 A3. You messed up somehow. Make sure you have installed [Homebrew](http://mxcl.github.com/homebrew/) and ran `brew install bash ldid gnu-tar wget xz`
+
+Mirrors
+------------
+
+This Git repo is avaliable on [GitHub](https://github.com/angelXwind/Cydia-Installer) (main) and [BitBucket](https://bitbucket.org/angelXwind/Cydia-Installer) (mirror).
+
+It was originally cloned from [git://git.saurik.com/cydia.git](git://git.saurik.com/cydia.git) , which is Saurik's own Git repo. Web UI is avaliable here: [http://gitweb.saurik.com/cydia.git](http://gitweb.saurik.com/cydia.git) .
