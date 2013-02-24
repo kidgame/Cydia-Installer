@@ -14,8 +14,10 @@ Build Instructions
 1. Install the official Apple iOS SDK, which comes with Xcode. Note that recent Xcode builds do not support the armv6 architecture.
 2. Install [Homebrew](http://mxcl.github.com/homebrew/)
 3. Run `brew install bash ldid gnu-tar wget xz`
-4. Run ./sysroot.sh and wait a bit
-5. Type "make" to compile.
+4. Clone this repo. Use either the CLI git command, or your favorite GUI. (I use [SourceTree](http://sourcetreeapp.com/) by Atlassian)
+5. If you checked out using the CLI, type in `git submodule update --init` Skip this if you use [SourceTree](http://sourcetreeapp.com/) , as it does this automatically for you.
+6. Run ./sysroot.sh and wait a bit
+7. Type "make" to compile.
 
 Notes
 ------------
